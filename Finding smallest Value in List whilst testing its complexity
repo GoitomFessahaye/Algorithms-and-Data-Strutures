@@ -1,0 +1,26 @@
+Finding smallest value from arbritrary list
+#############################################################
+import time
+from random import randrange
+
+def findMin(alist): # define findMin
+    overallmin = alist[0]
+    for i in alist:   # n items in list
+        issmallest=True 
+        for j in alist: # n items in list
+            if i>j:
+                issmallest =False
+        if issmallest:
+            overallmin = i
+    return overallmin       # O(^2)
+
+#print(findMin([0,5,4,2,1]))
+#print(findMin([5,4,2,1,0]))
+#############################################################################################
+for listSize in range(1000,10001, 1000):
+  alist = [randrange(100000) for z in range(listSize)]
+  start = time.time()
+  print(findMind(alist))
+  end = time.time()
+  print("size: &d time: %f" % (listSize, end-start))
+  
